@@ -15,7 +15,9 @@ Route::middleware(['auth:sanctum'])->group(function () {
 
 Route::get('/categories', [CategoryController::class, 'index']);
 Route::post('/categories', [CategoryController::class, 'store']);
-Route::get('/categories/{id}', [CategoryCOntroller::class, 'show']);
+Route::get('/categories/{id}', [CategoryController::class, 'show']);
+Route::put('/categories/{id}', [CategoryController::class, 'update']);
+Route::delete('/categories/{id}', [CategoryController::class, 'destroy']);
 
 Route::middleware(['auth:sanctum', 'can:admin'])->group(function () {
     Route::apiResource('/users', UserController::class);

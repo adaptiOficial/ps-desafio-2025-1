@@ -53,16 +53,25 @@ class CategoryController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateCategoryRequest $request, Category $category)
+    public function update(UpdateCategoryRequest $request, $id): JsonResponse
     {
-        //
+        $category = $this->category->findOrFail($id);
+
+        $data = $request->validated();
+
+        $category->update($data);
+
+        return response()->json($category, HttpFoundationResponse::HTTP_OK);
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Category $category)
+    public function destroy($id): JsonResponse
     {
-        //
+        $category = $this->category->findOrFail($id);
+        $category->delete();
+
+        return response()->json(['message' => 'Categoria deletada com sucesso!'], HttpFoundationResponse::HTTP_OK);
     }
 }
