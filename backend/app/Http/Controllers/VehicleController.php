@@ -52,7 +52,7 @@ class VehicleController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show($id)
+    public function show($id): JsonResponse
     {
         $vehicle = $this->vehicle->with('category')->findOrFail($id);
 
@@ -67,6 +67,8 @@ class VehicleController extends Controller
         $vehicle = $this->vehicle->with('category')->findOrFail($id);
         $data = $request->validated();
 
+        // dd($data);
+
         if ($request->hasFile('image')) {
             try {
                 $image_name = explode('vehicles/', $vehicle['image']);
@@ -79,9 +81,9 @@ class VehicleController extends Controller
         }
 
         $vehicle->update($data);
-        $vehicle_category = $this->vehicle->with('category')->findOrFail($id);
+        // $vehicle_category = $this->vehicle->with('category')->findOrFail($id);
 
-        return response()->json($vehicle_category, Response::HTTP_OK);
+        return response()->json($vehicle, Response::HTTP_OK);
     }
 
     /**
