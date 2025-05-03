@@ -20,4 +20,13 @@ class Category extends Model
     {
         return $this->hasMany(Vehicle::class, 'category_id', 'id');
     }
+
+    protected static function booted(): void
+    {
+        self::deleting(function (Category $category) {
+            $category->vehicles()->each(function (Vehicle $vehicle) {
+                $vehicle->update(['category_id' => null]);
+            });
+        });
+    }
 }

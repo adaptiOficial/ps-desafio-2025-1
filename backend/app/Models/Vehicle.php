@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Support\Facades\Storage;
+use Throwable;
 
 class Vehicle extends Model
 {
@@ -25,5 +27,16 @@ class Vehicle extends Model
     public function category(): BelongsTo
     {
         return $this->belongsTo(Category::class, 'category_id', 'id');
+    }
+
+    protected static function booted(): void
+    {
+        self::deleted(function (Vehicle $vehicle) {
+            try {
+                $image_name = explode('image/', $vehicle['image']);
+                Storage::disk('public')->delete('image/'.$image_name[1]);
+            } catch (Throwable) {
+            }
+        });
     }
 }

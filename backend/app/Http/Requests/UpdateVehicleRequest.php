@@ -31,7 +31,7 @@ class UpdateVehicleRequest extends FormRequest
             'image' => ['sometimes', 'image', 'mimes:jpeg,png,jpg,svg'],
             'price' => ['sometimes', 'numeric', 'min:10000', 'max:1000000'],
             'remaining_units' => ['sometimes', 'integer', 'min:0'],
-            'category_id' => ['sometimes', 'exists:categories,id'],
+            'category_id' => ['sometimes'],
         ];
     }
 }

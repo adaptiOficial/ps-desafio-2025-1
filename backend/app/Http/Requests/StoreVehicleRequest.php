@@ -33,7 +33,7 @@ class StoreVehicleRequest extends FormRequest
                 'image' => ['required', 'image', 'mimes:jpeg,png,jpg,svg'],
                 'price' => ['required', 'numeric', 'min:10000', 'max:1000000'],
                 'remaining_units' => ['required', 'integer', 'min:0'],
-                'category_id' => ['required', 'exists:categories,id'],
+                'category_id' => ['required'],
             ]
 
         );

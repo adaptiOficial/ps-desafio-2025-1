@@ -25,7 +25,7 @@ class VehicleController extends Controller
      */
     public function index(): JsonResponse
     {
-        $vehicle = $this->vehicle->all();
+        $vehicle = $this->vehicle->with('category')->get();
 
         return response()->json($vehicle, Response::HTTP_OK);
     }
