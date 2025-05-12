@@ -19,12 +19,12 @@ import { DialogInformationVehicle } from './dialog-information-vehicle'
 import { DialogCreateVehicle } from './dialog-create-vehicle'
 
 export default async function ListVehicles() {
-  const { response } = null // requisicao para api
+  const { response } = await api<vehicleType[]>('GET', '/vehicles') // requisicao para api
 
   if (!response) {
     return (
       <DashboardContainer className="text-destructive">
-        Não foi possível obter os usuários.
+        Não foi possível obter os veículos.
       </DashboardContainer>
     )
   }
@@ -37,7 +37,7 @@ export default async function ListVehicles() {
         <DialogCreateVehicle>
           <Button size="sm">
             <LuPlusCircle />
-            Novo livro
+            Novo veículo
           </Button>
         </DialogCreateVehicle>
       </DashboardContainer>
@@ -45,21 +45,27 @@ export default async function ListVehicles() {
         <Table>
           <TableHeader>
             <TableRow>
+              <TableHead>Nome</TableHead>
+              <TableHead>Marca</TableHead>
+              <TableHead>Ano de lançamento</TableHead>
               <TableHead>Imagem</TableHead>
-              <TableHead>Titulo</TableHead>
+              <TableHead>Preço (em R$)</TableHead>
+              <TableHead>Unidades restantes</TableHead>
               <TableHead>Categoria</TableHead>
-              <TableHead>Quantidade</TableHead>
               <TableHead className="text-right">Ações</TableHead>
             </TableRow>
           </TableHeader>
           <TableBody>
             {vehicles?.map((vehicle: vehicleType) => (
               <TableRow key={vehicle.id}>
+                <TableCell>{vehicle.name}</TableCell>
+                <TableCell>{vehicle.brand}</TableCell>
+                <TableCell>{vehicle.manufacture_year}</TableCell>
                 <TableCell>
                   <TabbleCellImage src={vehicle.image} />
                 </TableCell>
-                <TableCell>{vehicle.title}</TableCell>
-                <TableCell>{vehicle.amount}</TableCell>
+                <TableCell>{vehicle.price}</TableCell>
+                <TableCell>{vehicle.remaining_units}</TableCell>
                 <TableCell>{vehicle.category.name}</TableCell>
                 <TableCell className="flex justify-end gap-2">
                   <DialogInformationVehicle id={vehicle.id}>
@@ -82,7 +88,7 @@ export default async function ListVehicles() {
             ))}
           </TableBody>
           {!vehicles.length && (
-            <TableCaption>Nenhum livro encontrado.</TableCaption>
+            <TableCaption>Nenhum veículo encontrado.</TableCaption>
           )}
         </Table>
       </DashboardContainer>

@@ -32,7 +32,7 @@ export function DialogUpdateCategory({
 
   useEffect(() => {
     const requestData = async () => {
-      const { response } = null // requisicao para api
+      const { response } = await api<categoryType>('GET', `/categories/${id}`) // requisicao para api
 
       if (response) {
         setCategory(response)
@@ -65,7 +65,7 @@ export function DialogUpdateCategory({
       })
     } else {
       toast({
-        title: 'Categoria editado com sucesso!',
+        title: 'Categoria editada com sucesso!',
       })
       setOpen(false)
     }

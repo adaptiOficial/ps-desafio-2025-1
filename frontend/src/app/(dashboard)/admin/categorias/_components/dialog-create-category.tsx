@@ -56,7 +56,7 @@ export function DialogCreateCategory({ children }: DialogCreateCategoryProps) {
           <DialogTitle>Adicionar categoria</DialogTitle>
           <DialogDescription>
             Preencha as informações da nova categoria abaixo e clique em
-            &rdquo;Salvar&rdquo; para incluí-lo no sistema.
+            &rdquo;Salvar&rdquo; para incluí-la no sistema.
           </DialogDescription>
         </DialogHeader>
         <form action={submit}>
