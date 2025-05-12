@@ -18,8 +18,9 @@ class DatabaseSeeder extends Seeder
         User::factory(10)->create();
         for ($counter = 0; $counter < 5; $counter++) {
             Category::factory()
-                ->has(Vehicle::factory()->count(random_int(0, 15)), 'vehicles')
+                ->has(Vehicle::factory()->count(5), 'vehicles')
                 ->create();
+            // random_int(0, 15)
         }
 
         $user = User::factory()->create([
