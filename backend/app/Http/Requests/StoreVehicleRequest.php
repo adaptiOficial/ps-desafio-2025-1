@@ -30,7 +30,7 @@ class StoreVehicleRequest extends FormRequest
             ],
             [
                 'manufacture_year' => ['required', 'integer', 'digits:4', 'min:1900', 'max:'.date('Y')],
-                'image' => ['required', 'image', 'mimes:jpeg,png,jpg,svg'],
+                'image' => ['required', 'file', 'mimes:jpeg,png,jpg,svg'],
                 'price' => ['required', 'numeric', 'min:10000', 'max:1000000'],
                 'remaining_units' => ['required', 'integer', 'min:0'],
                 'category_id' => ['required'],

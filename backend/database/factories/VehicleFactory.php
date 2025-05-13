@@ -17,7 +17,10 @@ class VehicleFactory extends Factory
      */
     public function definition(): array
     {
-        $dummy_source_url = 'https://picsum.photos/400/300';
+        // $dummy_source_url = 'https://picsum.photos/400';  backend quebrado, erro 503 muito frequente
+
+        $hexadecimal = str_pad(dechex(random_int(0, 0xFFFFFF)), 6, '0', STR_PAD_LEFT);
+        $dummy_source_url = 'https://placehold.co/400x400/'.$hexadecimal.'/FFFFFF.png';
         $image_name = 'image-'.random_int(0, 10000).'.jpg';
         $image_path = 'vehicles/'.$image_name;
 

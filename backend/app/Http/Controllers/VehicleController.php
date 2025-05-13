@@ -37,7 +37,7 @@ class VehicleController extends Controller
     {
         $data = $request->validated();
 
-        if ($request->has('image')) {
+        if ($request->has('file')) {
             $path = $request->file('image')->store('vehicles', 'public');
             $data['image'] = url('storage/'.$path);
         }
