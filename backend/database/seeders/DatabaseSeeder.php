@@ -19,7 +19,7 @@ class DatabaseSeeder extends Seeder
 
         for ($counter = 0; $counter < 5; $counter++) {
             Category::factory()
-                ->has(Vehicle::factory()->count(random_int(1, 15)), 'vehicles')
+                ->has(Vehicle::factory()->count(3), 'vehicles')
                 ->create();
         }
 

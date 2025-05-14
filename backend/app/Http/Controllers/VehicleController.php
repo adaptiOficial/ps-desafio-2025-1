@@ -41,6 +41,10 @@ class VehicleController extends Controller
             $path = $request->file('image')->store('vehicles', 'public');
             $data['image'] = url('storage/'.$path);
         }
+        // como a imagem é required para a criação do veículo, não preciso verificar isso. essa verificação estava impedindo o salvamento correto da imagem também, por algum motivo...
+
+        // $path = $request->file('image')->store('vehicles', 'public');
+        // $data['image'] = url('storage/'.$path);
 
         $vehicle = $this->vehicle->create($data);
         $id = $vehicle->id;

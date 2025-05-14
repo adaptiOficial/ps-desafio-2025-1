@@ -21,7 +21,7 @@ import {
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from '@radix-ui/react-select'
+} from '@/components/select'
 import { useEffect, useState } from 'react'
 import { useFormStatus } from 'react-dom'
 
@@ -176,8 +176,12 @@ export default function FormFieldsVehicle({
             </SelectTrigger>
             <SelectContent id="category_id">
               <SelectGroup id="category_id">
-                {categories?.map((categoryType, index) => (
-                  <SelectItem value={categoryType.id} key={index}>
+                {categories?.map((categoryType, number) => (
+                  <SelectItem
+                    key={number}
+                    value={categoryType.id}
+                    className="capitalize"
+                  >
                     {categoryType.name}
                   </SelectItem>
                 ))}

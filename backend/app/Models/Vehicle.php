@@ -33,8 +33,9 @@ class Vehicle extends Model
     {
         self::deleted(function (Vehicle $vehicle) {
             try {
-                $image_name = explode('image/', $vehicle['image']);
-                Storage::disk('public')->delete('image/'.$image_name[1]);
+                // $image_name = explode('image/', $vehicle['image']);
+                $image_name = $vehicle['image'];
+                Storage::disk('public')->delete($image_name);
             } catch (Throwable) {
             }
         });
