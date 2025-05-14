@@ -9,15 +9,23 @@ interface vehicleProps {
 
 export default function Card({ vehicle }: vehicleProps) {
   return (
-    <div>
-      <img src={vehicle.image} alt="Imagem do veículo" />
-      <div>
-        <h2>{vehicle.name}</h2>
-        <p>Marca: {vehicle.brand}</p>
-        <p>Ano de lançamento: {vehicle.manufacture_year}</p>
-        <p>Categoria: {vehicle.category.name}</p>
-        <p>Quantidade em estoque: {vehicle.remaining_units}</p>
-        <p>Preço: R${vehicle.price}</p>
+    <div className={style.card}>
+      <img
+        src={vehicle.image}
+        alt="Imagem do veículo"
+        className={style.card_img}
+      />
+      <div className={style.card_body}>
+        <h2 className={style.card_name}>{vehicle.name}</h2>
+        <p className={style.card_content}>Marca: {vehicle.brand}</p>
+        <p className={style.card_content}>
+          Ano de lançamento: {vehicle.manufacture_year}
+        </p>
+        <p className={style.card_content}>Categoria: {vehicle.category.name}</p>
+        <p className={style.card_content}>
+          Quantidade em estoque: {vehicle.remaining_units}
+        </p>
+        <p className={style.card_content}>Preço: R${vehicle.price}</p>
       </div>
     </div>
   )
