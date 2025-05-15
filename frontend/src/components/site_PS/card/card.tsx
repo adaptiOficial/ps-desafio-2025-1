@@ -13,8 +13,14 @@ interface vehicleProps {
 export default function Card({ vehicle }: vehicleProps) {
   const [remainingUnits, setRemainingUnits] = useState(vehicle.remaining_units)
 
+  const [buttonLabel, setButtonLabel] = useState(
+    vehicle.remaining_units > 0 ? 'Comprar' : 'Esgotado',
+  )
+
   const handleBuy = async () => {
     if (remainingUnits === 0) return
+
+    if (remainingUnits === 1) setButtonLabel('Esgotado')
 
     try {
       await updateVehicleStock(vehicle.id, {
@@ -41,10 +47,16 @@ export default function Card({ vehicle }: vehicleProps) {
         </p>
         <p className={style.card_content}>Categoria: {vehicle.category.name}</p>
         <p className={style.card_content}>
-          Quantidade em estoque: {vehicle.remaining_units}
+          Quantidade em estoque: {remainingUnits}
         </p>
         <p className={style.card_content}>Preço: R${vehicle.price}</p>
-        <Button onClick={handleBuy} />
+        <Button
+          onClick={() => {
+            handleBuy()
+          }}
+        >
+          {buttonLabel}
+        </Button>
       </div>
     </div>
   )

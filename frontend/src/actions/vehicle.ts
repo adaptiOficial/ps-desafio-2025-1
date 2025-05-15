@@ -26,7 +26,7 @@ export async function updateVehicleStock(
   id: string,
   data: Partial<vehicleType>,
 ) {
-  const response = await api('PUT', `/vehicles/${id}`, { data })
+  const response = await api('PUT', `/buyVehicle/${id}`, { data })
 
   if (response.error) {
     throw new Error('Erro ao atualizar veículo')

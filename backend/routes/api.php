@@ -19,6 +19,7 @@ Route::get('/categories/{id}', [CategoryController::class, 'show']);
 
 Route::get('/vehicles', [VehicleController::class, 'index']);
 Route::get('/vehicles/{id}', [VehicleController::class, 'show']);
+Route::put('/buyVehicle/{id}', [VehicleController::class, 'update']);
 
 Route::middleware(['auth:sanctum', 'can:admin'])->group(function () {
     Route::apiResource('/users', UserController::class);
