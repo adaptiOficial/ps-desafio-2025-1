@@ -115,18 +115,20 @@
     display: none !important;
 }
 
-@media screen and (max-width: 543px) {
+@media screen and (max-width: 525px) {
     .navbar_nav {
         display: flex;
         text-align: center;
         justify-content: center;
         flex-direction: column;
+        padding: 10px 0;
     }
 
     .linkLogo {
         display: flex;
         text-align: center;
         justify-content: center;
+        margin-bottom: 10px;
     }
 
     .logo {
@@ -137,13 +139,24 @@
     }
 
     .nav_links {
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: center;
-        display: flex;
         flex-direction: column;
-        text-align: center;
+        align-items: center;
         margin: 0;
+        width: 100%;
+    }
+
+    .nav_itens {
+        width: 100%;
+        margin: 5px 0;
+        padding: 8px 0;
+        border-bottom: 1px solid #eee;
+    }
+
+    .dropdownCaixa {
+        display: block;
+        width: 100%;
+        text-align: center;
+        padding: 10px 0;
     }
 
     .optionsMenu {
@@ -151,10 +164,22 @@
         box-shadow: none;
         border: none;
         margin-top: 0;
+        width: 100%;
+        display: none;
+        background-color: #f5f5f5;
     }
 
-    .nav_itens {
-        margin: 0;
+    .optionsMenu.show {
+        display: block;
     }
 
+    .optionsMenu li {
+        padding: 8px 15px;
+        text-align: center;
+        border-bottom: 1px solid #ddd;
+    }
+
+    .optionsMenu li:last-child {
+        border-bottom: none;
+    }
 }

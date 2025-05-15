@@ -17,6 +17,7 @@ export default function Navbar({ logo, onCategoryChange }: navBarProps) {
   const [isAuth, setIsAuth] = useState<boolean>(false)
   const [showDropdown, setShowDropdown] = useState<boolean>(false)
   const [categorias, setCategorias] = useState<categoryType[]>([])
+  const [isMobile, setIsMobile] = useState<boolean>(false)
   const filterItems = (categoria: string) => {
     onCategoryChange(categoria) 
     setShowDropdown(false)
@@ -24,6 +25,10 @@ export default function Navbar({ logo, onCategoryChange }: navBarProps) {
   const { toast } = useToast()
 
   useEffect(() => {
+    const checkIfMobile = () => {
+      setIsMobile(window.innerWidth <= 525);
+    };
+    
     const requestDataSession = async () => {
       const sessionResponse = await getSession()
       if (sessionResponse) {
@@ -44,8 +49,14 @@ export default function Navbar({ logo, onCategoryChange }: navBarProps) {
       }
     }
 
+    checkIfMobile();
+    window.addEventListener('resize', checkIfMobile);
     requestDataSession()
     requestData()
+
+    return () => {
+      window.removeEventListener('resize', checkIfMobile);
+    };
   }, [toast])
 
   const toggleDropdown = () => {
@@ -72,18 +83,17 @@ export default function Navbar({ logo, onCategoryChange }: navBarProps) {
           <li className={style.nav_itens}>
             <a href="">Veiculos</a>
           </li>
-          <li
-            className={style.nav_itens}
-            style={{ position: 'relative' }}
-          >
+          <li className={style.nav_itens} style={{ position: 'relative' }}>
             <div
-              onMouseEnter={() => setShowDropdown(true)}
-              onMouseLeave={() => setShowDropdown(false)}
+              {...(!isMobile ? {
+                onMouseEnter: () => setShowDropdown(true),
+                onMouseLeave: () => setShowDropdown(false)
+              } : {
+                onClick: () => setShowDropdown(!showDropdown)
+              })}
               style={{ position: 'relative' }}
             >
-              <span
-                className={style.dropdownCaixa}
-              >
+              <span className={style.dropdownCaixa}>
                 Categorias ▾
               </span>
               <ul
