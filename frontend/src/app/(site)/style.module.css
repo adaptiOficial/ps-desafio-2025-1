@@ -1,0 +1,53 @@
+.page {
+    font-family: "Arial", system-ui;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    background: linear-gradient(to top, #1768AC 40%, #000000 100%);
+    position: relative;
+    padding-bottom: 340px;
+}
+
+.title {
+    font-family: 'PT Serif', serif;
+    color: #fff;
+    padding-top: 16px;
+    font-weight: 800;
+    display: flex;
+    font-size: 80px;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    text-shadow: 3px 3px 5px rgba(255, 255, 255, 160);
+}
+
+.wrapper {
+    margin: 2rem;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.2rem;
+    justify-content: center;
+    transition: all 0.5s ease;
+}
+
+@media screen and (max-width: 1200px) {
+    .wrapper {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .wrapper {
+        grid-template-columns: 1fr;
+    }
+
+    .title {
+        font-size: 60px;
+    }
+}
