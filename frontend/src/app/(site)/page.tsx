@@ -35,6 +35,7 @@ export default function Home() {
     <>
       <div className={style.page}>
         <Navbar logo="./images/logo2.svg" />
+
         <div className={style.wrapper}>
           {vehicles?.map((vehicle: vehicleType, index: number) => (
             <Card vehicle={vehicle} key={index} />

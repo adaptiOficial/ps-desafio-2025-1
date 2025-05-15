@@ -22,7 +22,7 @@ class VehicleFactory extends Factory
             'manufacture_year' => fake()->year('now'),
             'image' => $this->generateImage(),
             'price' => fake()->randomFloat(2, 10000, 1000000),
-            'remaining_units' => fake()->randomNumber(2, true),
+            'remaining_units' => fake()->numberBetween(1, 10),
         ];
     }
 

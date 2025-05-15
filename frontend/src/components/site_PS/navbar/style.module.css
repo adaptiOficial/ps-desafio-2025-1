@@ -37,7 +37,7 @@
 }
 
 .logo:hover {
-    transform: scale(1.15);
+    transform: scale(1.1);
     filter: brightness(1.7);
 }
 

@@ -1,7 +1,7 @@
 .buy_button {
     border-style: solid;
     border-color: #EDC72B;
-    border-width: 2px;
+    /* border-width: 1px; */
     font-weight: bold;
     color: #EDC72B;
     padding: 10px;
@@ -15,6 +15,17 @@
         1px -1px 0 #0B2027,
         -1px 1px 0 #0B2027,
         1px 1px 0 #0B2027;
+    box-shadow: 0 3px 0 #6d0d06;
+    transition: all 0.3s;
+}
 
+.buy_button:hover:enabled {
+    background-color: #7b120a;
+    box-shadow: 0 3px 0 #6d0d06;
+}
 
+.buy_button:enabled:active {
+    position: relative;
+    top: 3px;
+    box-shadow: none;
 }

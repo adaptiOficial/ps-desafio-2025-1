@@ -50,11 +50,7 @@ export default function Card({ vehicle }: vehicleProps) {
           Quantidade em estoque: {remainingUnits}
         </p>
         <p className={style.card_content}>Preço: R${vehicle.price}</p>
-        <Button
-          onClick={() => {
-            handleBuy()
-          }}
-        >
+        <Button onClick={handleBuy} disabled={buttonLabel === 'Esgotado'}>
           {buttonLabel}
         </Button>
       </div>
