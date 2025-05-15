@@ -31,23 +31,23 @@ export default function Navbar({ logo }: navbarProps) {
     <nav className={style.navbar}>
       <div className={style.navbar_nav}>
         <ul className={style.navbar_links}>
-          <li className={style.navbar_item}>
+          <li className={`${style.navbar_item} ${style.novidades}`}>
             <a href="">Novidades</a>
           </li>
-          <li className={style.navbar_item}>
-            <a href="">Categorias</a>
+          <li className={`${style.navbar_item} ${style.acessorios}`}>
+            <a href="">Acessórios</a>
           </li>
           <li className={style.navbar_item}>
             <a href="#">
               <img className={style.logo} src={logo} alt="Logo" />
             </a>
           </li>
-          <li className={style.navbar_item}>
+          <li className={`${style.navbar_item} ${style.sobre_nos}`}>
             <a href="">Sobre nós</a>
           </li>
-          <li className={style.navbar_item}>
+          <li className={`${style.navbar_item} ${style.acesso_restrito}`}>
             <a href="/admin">
-              {isAuth ? 'Acessar aba de admin' : 'Acesso restrito'}
+              {isAuth ? 'Acessar sistema' : 'Acesso restrito'}
             </a>
           </li>
         </ul>

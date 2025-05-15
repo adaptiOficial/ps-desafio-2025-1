@@ -61,3 +61,40 @@
     object-fit: cover;
     display: block;
 }
+
+@media screen and (min-width: 730px) and (max-width: 930px) {
+    .cards_wrapper {
+        align-items: center;
+        justify-items: center;
+    }
+}
+
+@media screen and (min-width: 650px) and (max-width: 800px) {
+    .wrapper>h1 {
+        font-size: 2rem;
+    }
+
+    .carousel {
+        height: 25rem;
+    }
+}
+
+@media screen and (min-width: 400px) and (max-width: 650px) {
+    .wrapper>h1 {
+        font-size: 1.5rem;
+    }
+
+    .carousel_wrapper {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .wrapper>h1 {
+        font-size: 1.2rem;
+    }
+
+    .carousel_wrapper {
+        display: none;
+    }
+}

@@ -46,10 +46,13 @@ export default function Footer() {
             </a>
           </li>
         </ul>
+        <div className={style.copyright}>
+          <p>2025, METALIZADO Monster Trucks - Todos os direitos reservados</p>
+        </div>
         <ul className={style.list}>
           <h3>Parcerias</h3>
           <li>
-            <a href="#" className={style.sobre_links}>
+            <a href="https://chucknorris.com/" className={style.sobre_links}>
               Chuck Norris BRAND
             </a>
           </li>
@@ -64,9 +67,6 @@ export default function Footer() {
             </a>
           </li>
         </ul>
-        <div className={style.copyright}>
-          <p>2025, METALIZADO Monster Trucks - Todos os direitos reservados</p>
-        </div>
       </div>
     </footer>
   )

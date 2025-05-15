@@ -2,6 +2,7 @@
     height: 100px;
     background: #0B2027;
     border-bottom: 1.5px #EFF1F3;
+    padding-bottom: 1rem;
     z-index: 1000;
     display: flex;
     justify-content: center;
@@ -23,7 +24,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 15rem;
+    gap: 10vw;
     list-style: none;
     padding: 0;
     margin: 0;
@@ -43,16 +44,26 @@
 }
 
 .navbar_item {
-    height: 40px;
+    height: auto;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: auto;
+    margin-bottom: 0.5rem;
 }
 
 .navbar_item:hover>a {
     transform: scale(1.1);
     transition: 0.2s;
+}
+
+@media screen and (min-width: 800px) and (max-width: 1000px) {
+    .navbar {
+        font-size: 18px;
+    }
+
+    .navbar_links {
+        gap: 5vw;
+    }
 }
 
 @media screen and (max-width: 800px) {
@@ -64,12 +75,32 @@
 
     .logo {
         position: inherit;
+        order: 3;
+        margin-top: 4vh;
+    }
+
+    .novidades {
+        order: 1;
+    }
+
+    .acessorios {
+        order: 2;
+    }
+
+    .sobre_nos {
+        order: 4;
+    }
+
+    .acesso_restrito {
+        order: 5;
     }
 
     .navbar_links {
-        flex-direction: row;
+        flex-direction: column;
         flex-wrap: wrap;
         justify-content: center;
+        column-gap: 2vh;
+
     }
 
     .navbar {
