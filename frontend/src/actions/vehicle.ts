@@ -1,6 +1,7 @@
 'use server'
 
 import { api } from '@/services/api'
+import { vehicleType } from '@/types/vehicle'
 import { revalidatePath } from 'next/cache'
 
 export async function createVehicle(form: FormData) {
@@ -19,6 +20,19 @@ export async function updateVehicle(form: FormData) {
     revalidatePath('/admin/veiculos')
   }
   return JSON.stringify(res)
+}
+
+export async function updateVehicleStock(
+  id: string,
+  data: Partial<vehicleType>,
+) {
+  const response = await api('PUT', `/vehicles/${id}`, { data })
+
+  if (response.error) {
+    throw new Error('Erro ao atualizar veículo')
+  }
+
+  return response
 }
 
 export async function destroyVehicle(id: string) {

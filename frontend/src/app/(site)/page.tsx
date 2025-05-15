@@ -10,6 +10,7 @@ import { useEffect, useState } from 'react'
 import style from './style.module.css'
 import Card from '@/components/site_PS/card/card'
 import Navbar from '@/components/site_PS/navbar/navbar'
+import Footer from '@/components/site_PS/footer/footer'
 
 export default function Home() {
   const [vehicles, setVehicles] = useState<vehicleType[] | undefined>()
@@ -39,6 +40,7 @@ export default function Home() {
             <Card vehicle={vehicle} key={index} />
           ))}
         </div>
+        <Footer />
       </div>
     </>
   )

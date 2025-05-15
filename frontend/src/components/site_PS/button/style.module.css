@@ -1,0 +1,20 @@
+.buy_button {
+    border-style: solid;
+    border-color: #EDC72B;
+    border-width: 2px;
+    font-weight: bold;
+    color: #EDC72B;
+    padding: 10px;
+    margin-bottom: 20px;
+    background-color: #8f160d;
+    width: 140px;
+    align-self: center;
+    font-size: 20px;
+    text-shadow:
+        -1px -1px 0 #0B2027,
+        1px -1px 0 #0B2027,
+        -1px 1px 0 #0B2027,
+        1px 1px 0 #0B2027;
+
+
+}
