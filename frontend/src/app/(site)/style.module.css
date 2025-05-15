@@ -3,7 +3,7 @@
 .page {
     font-family: "Metal Mania", system-ui;
     color: #EFF1F3;
-    background-color: #92140C;
+    background-color: #0e2830;
     display: flex;
     flex-direction: column;
     min-height: 100%;
@@ -14,14 +14,50 @@
     width: 100%;
     position: relative;
     padding-bottom: 340px;
-    /* espaço para o footer, ajustar depois */
 }
 
 .wrapper {
     margin: 2rem;
+    padding: 2rem;
+    justify-self: center;
+    align-self: center;
+    justify-content: center;
+    width: 90%;
+    transition: all 0.5s ease;
+    background-color: #92140C;
+    border-radius: 5px;
+    z-index: 500;
+}
+
+.wrapper>h1 {
+    font-size: 3rem;
+    justify-self: center;
+}
+
+.cards_wrapper {
+    margin-top: 2rem;
     display: grid;
     gap: 1.2rem;
-    grid-template-columns: repeat(auto-fit, minmax(16rem, 18rem));
+    grid-template-columns: repeat(auto-fit, minmax(16rem, 20rem));
+    max-width: 85%;
+    justify-self: center;
+    align-self: center;
     justify-content: center;
-    transition: all 0.5s ease;
+
+}
+
+.carousel_wrapper {
+    margin-top: 1.5rem;
+}
+
+.carousel {
+    max-width: 100%;
+    border-radius: 5px;
+}
+
+.carousel_img {
+    width: 100%;
+    height: 35rem;
+    object-fit: cover;
+    display: block;
 }
